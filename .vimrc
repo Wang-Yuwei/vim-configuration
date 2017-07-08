@@ -20,6 +20,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 
@@ -37,6 +39,7 @@ set guioptions-=T
 if has('gui_running')
     colorscheme molokai
 endif
+set guifont=Source\ Code\ Pro
 
 fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
@@ -85,11 +88,16 @@ nmap <Leader>wh <C-W>h
 nmap <Leader>wj <C-W>j
 nmap <Leader>wk <C-W>k
 nmap <Leader>wv :vsplit<CR>
-nmap <Leader>wh :split<CR>
+nmap <Leader>ws :split<CR>
 
 " backspace
 set backspace=indent,eol,start
 
+" powerline
+let g:Powerline_colorscheme='solarized256'
+
 " nerd tree
 nmap <leader>ft :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
 
