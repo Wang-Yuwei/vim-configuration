@@ -1,4 +1,4 @@
-# Spacemacs Configuration
+# Vim Configuration
 
 ## Usage
 ```bash
