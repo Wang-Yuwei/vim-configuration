@@ -1,6 +1,6 @@
 " Leader key and Escape key
 let mapleader="\<Space>"
-imap jj <Esc>
+imap jk <Esc>
 
 " auto load .vimrc
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -34,7 +34,7 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-set guioptions-=m
+" set guioptions-=m
 set guioptions-=T
 if has('gui_running')
     colorscheme molokai
@@ -60,6 +60,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
 
 " view
 set number
@@ -101,3 +102,14 @@ nmap <leader>ft :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 
+" you complete me
+highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+let g:ycm_complete_in_comments=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_collect_identifiers_from_tags_files=1
+set tags+=/data/misc/software/misc./vim/stdcpp.tags
+set completeopt-=preview
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_cache_omnifunc=0
+let g:ycm_seed_identifiers_with_syntax=1
