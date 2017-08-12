@@ -53,6 +53,7 @@ set ignorecase
 set wildmenu
 syntax enable
 syntax on
+autocmd BufEnter * set mouse=
 
 " indent
 filetype indent on
