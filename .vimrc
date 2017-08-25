@@ -24,6 +24,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'rhysd/vim-clang-format'
 
 call vundle#end()
 filetype plugin indent on
@@ -80,8 +81,8 @@ vnoremap <Leader>y "+y
 nmap <Leader>p "+p
 
 " open file
-cnoremap red edit <c-r>=expand("%:h")<cr>/
-nmap <Leader>ff :red
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+nmap <Leader>ff :edit %%
 
 " window
 nmap <Leader>wl <C-W>l
@@ -101,4 +102,8 @@ let g:Powerline_colorscheme='solarized256'
 nmap <leader>ft :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
+
+" clang format
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=1
 
