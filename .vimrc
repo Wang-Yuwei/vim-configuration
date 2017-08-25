@@ -96,6 +96,8 @@ nmap <Leader>ws :split<CR>
 set backspace=indent,eol,start
 
 " powerline
+set laststatus=2
+let g:Powerline_symbols='fancy'
 let g:Powerline_colorscheme='solarized256'
 
 " nerd tree
