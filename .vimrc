@@ -20,7 +20,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
@@ -95,10 +97,16 @@ nmap <Leader>ws :split<CR>
 " backspace
 set backspace=indent,eol,start
 
-" powerline
+" airline
 set laststatus=2
-let g:Powerline_symbols='fancy'
-let g:Powerline_colorscheme='solarized256'
+set t_Co=256
+function! WindowNumber()
+    let str=tabpagewinnr(tabpagenr())
+    return str
+endfunction
+let g:airline_section_x='column:%c line:%l,%L'
+let g:airline_section_z='window:%{WindowNumber()}'
+
 
 " nerd tree
 nmap <leader>ft :NERDTreeToggle<CR>
