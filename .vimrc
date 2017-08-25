@@ -93,6 +93,12 @@ nmap <Leader>wj <C-W>j
 nmap <Leader>wk <C-W>k
 nmap <Leader>wv :vsplit<CR>
 nmap <Leader>ws :split<CR>
+let i = 1
+while i <= 9
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+endwhile
+
 
 " backspace
 set backspace=indent,eol,start
@@ -106,6 +112,7 @@ function! WindowNumber()
 endfunction
 let g:airline_section_x='column:%c line:%l,%L'
 let g:airline_section_z='window:%{WindowNumber()}'
+let g:airline_theme='papercolor'
 
 
 " nerd tree
