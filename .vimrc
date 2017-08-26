@@ -28,6 +28,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'hzchirs/vim-material'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,6 +45,7 @@ set guioptions-=T
 if has('gui_running')
     colorscheme molokai
 endif
+" colorscheme PaperColor
 set guifont=Source\ Code\ Pro
 
 fun! ToggleFullscreen()
@@ -121,6 +124,9 @@ let g:airline_theme='papercolor'
 nmap <leader>ft :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
+
+" ctrlp
+nmap <Leader>pf :CtrlP<CR>
 
 " clang format
 let g:clang_format#detect_style_file=1
