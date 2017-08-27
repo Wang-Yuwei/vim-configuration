@@ -92,7 +92,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <Leader>ff :edit %%
 
 " create directory on save
-function s:MkNonExDir(file, buf)
+function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
         let dir=fnamemodify(a:file, ':h')
         if !isdirectory(dir)
@@ -142,6 +142,10 @@ let NERDTreeAutoDeleteBuffer=1
 
 " ctrlp
 nmap <Leader>pf :CtrlP<CR>
+
+" manual
+source $VIMRUNTIME/ftplugin/man.vim
+nmap <Leader>man :Man 3 <cword><CR>
 
 " clang format
 let g:clang_format#detect_style_file=1
