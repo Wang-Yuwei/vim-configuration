@@ -43,10 +43,10 @@ set guioptions-=R
 " set guioptions-=m
 set guioptions-=T
 if has('gui_running')
-    colorscheme molokai
+    colorscheme vim-material
 endif
 " colorscheme PaperColor
-set guifont=Source\ Code\ Pro
+set guifont=Consolas\ 13
 
 fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
@@ -91,11 +91,26 @@ nmap <Leader>p "+p
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <Leader>ff :edit %%
 
+" create directory on save
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
 " window
 nmap <Leader>wl <C-W>l
 nmap <Leader>wh <C-W>h
 nmap <Leader>wj <C-W>j
 nmap <Leader>wk <C-W>k
+nmap <Leader>w= <C-W>=
 nmap <Leader>wv :vsplit<CR>
 nmap <Leader>ws :split<CR>
 let i = 1
