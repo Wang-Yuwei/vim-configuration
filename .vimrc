@@ -30,6 +30,7 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'hzchirs/vim-material'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'godlygeek/csapprox'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,8 +46,27 @@ set guioptions-=T
 if has('gui_running')
     colorscheme vim-material
 endif
-" colorscheme PaperColor
+colorscheme PaperColor
+" colorscheme vim-material
 set guifont=Consolas\ 13
+set background=dark
+let g:CSApprox_hook_post = [
+            \ 'highlight Normal            ctermbg=NONE',
+            \ 'highlight LineNr            ctermbg=NONE',
+            \ 'highlight SignifyLineAdd    cterm=bold ctermbg=NONE ctermfg=green',
+            \ 'highlight SignifyLineDelete cterm=bold ctermbg=NONE ctermfg=red',
+            \ 'highlight SignifyLineChange cterm=bold ctermbg=NONE ctermfg=yellow',
+            \ 'highlight SignifySignAdd    cterm=bold ctermbg=NONE ctermfg=green',
+            \ 'highlight SignifySignDelete cterm=bold ctermbg=NONE ctermfg=red',
+            \ 'highlight SignifySignChange cterm=bold ctermbg=NONE ctermfg=yellow',
+            \ 'highlight SignColumn        ctermbg=NONE',
+            \ 'highlight CursorLine        ctermbg=NONE cterm=underline',
+            \ 'highlight Folded            ctermbg=NONE cterm=bold',
+            \ 'highlight FoldColumn        ctermbg=NONE cterm=bold',
+            \ 'highlight NonText           ctermbg=NONE',
+            \ 'highlight clear LineNr'
+            \]
+
 
 fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
@@ -119,6 +139,10 @@ while i <= 9
     let i = i + 1
 endwhile
 
+" buffer
+nmap <Leader>bp :bprev<CR>
+nmap <Leader>bn :bnext<CR>
+nmap <Leader>bb :CtrlPBuffer<CR>
 
 " backspace
 set backspace=indent,eol,start
@@ -162,3 +186,4 @@ set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
+let g:disable_protodef_sorting=1
