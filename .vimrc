@@ -31,6 +31,10 @@ Plugin 'hzchirs/vim-material'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'godlygeek/csapprox'
+Plugin 'richq/vim-cmake-completion'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -172,8 +176,19 @@ source $VIMRUNTIME/ftplugin/man.vim
 nmap <Leader>man :Man 3 <cword><CR>
 
 " clang format
-let g:clang_format#detect_style_file=1
-let g:clang_format#auto_format=1
+" let g:clang_format#detect_style_file=1
+" let g:clang_format#auto_format=1
+
+" Auto format
+au BufWrite * :Autoformat
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
+
+" javascript
+let g:syntastic_javascript_checkers = ['eslint']
+let g:formatdef_eslint = '"SRC=eslint-temp-${RANDOM}.js; cat - >$SRC; eslint --fix $SRC >/dev/null 2>&1; cat $SRC | perl -pe \"chomp if eof\"; rm -f $SRC"'
+let g:formatters_javascript = ['eslint']
 
 " you complete me
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
