@@ -35,6 +35,8 @@ Plugin 'richq/vim-cmake-completion'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -189,6 +191,7 @@ let g:autoformat_retab = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:formatdef_eslint = '"SRC=eslint-temp-${RANDOM}.js; cat - >$SRC; eslint --fix $SRC >/dev/null 2>&1; cat $SRC | perl -pe \"chomp if eof\"; rm -f $SRC"'
 let g:formatters_javascript = ['eslint']
+let g:javascript_plugin_flow = 1
 
 " you complete me
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
