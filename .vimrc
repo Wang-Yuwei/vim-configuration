@@ -101,6 +101,10 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 
+" folding
+set foldmethod=syntax
+set nofoldenable
+
 " view
 set number
 set cursorline
