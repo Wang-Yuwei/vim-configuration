@@ -58,9 +58,9 @@ if has('gui_running')
     colorscheme vim-material
 endif
 colorscheme PaperColor
-" colorscheme vim-material
+colorscheme vim-material
 set guifont=Consolas\ 13
-set background=dark
+" set background=dark
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
             \ 'highlight LineNr            ctermbg=NONE',
