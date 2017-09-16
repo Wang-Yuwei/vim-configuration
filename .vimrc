@@ -33,7 +33,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'godlygeek/csapprox'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'othree/yajs.vim'
@@ -221,3 +221,8 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+
+" syntastic
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["qml"] }
