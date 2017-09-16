@@ -43,6 +43,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'Quramy/tsuquyomi'
 
+set encoding=utf-8
+
 call vundle#end()
 filetype plugin indent on
 
@@ -52,14 +54,18 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-set guioptions-=m
+" set guioptions-=m
 set guioptions-=T
 if has('gui_running')
     colorscheme vim-material
+    if has('gui_gtk2')
+        set guifont=Consolas\ 13
+    elseif has('gui_win32')
+        set guifont=Consolas:h13:cANSI
+    endif
 endif
 colorscheme PaperColor
 " colorscheme vim-material
-set guifont=Consolas\ 13
 set background=dark
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
