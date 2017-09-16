@@ -37,6 +37,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'othree/yajs.vim'
+Plugin 'posva/vim-vue'
+Plugin 'peterhoeg/vim-qml'
 
 " typescript
 Plugin 'leafgarland/typescript-vim'
@@ -64,26 +66,8 @@ if has('gui_running')
         set guifont=Consolas:h13:cANSI
     endif
 endif
-colorscheme PaperColor
-" colorscheme vim-material
-set background=dark
-let g:CSApprox_hook_post = [
-            \ 'highlight Normal            ctermbg=NONE',
-            \ 'highlight LineNr            ctermbg=NONE',
-            \ 'highlight SignifyLineAdd    cterm=bold ctermbg=NONE ctermfg=green',
-            \ 'highlight SignifyLineDelete cterm=bold ctermbg=NONE ctermfg=red',
-            \ 'highlight SignifyLineChange cterm=bold ctermbg=NONE ctermfg=yellow',
-            \ 'highlight SignifySignAdd    cterm=bold ctermbg=NONE ctermfg=green',
-            \ 'highlight SignifySignDelete cterm=bold ctermbg=NONE ctermfg=red',
-            \ 'highlight SignifySignChange cterm=bold ctermbg=NONE ctermfg=yellow',
-            \ 'highlight SignColumn        ctermbg=NONE',
-            \ 'highlight CursorLine        ctermbg=NONE cterm=underline',
-            \ 'highlight Folded            ctermbg=NONE cterm=bold',
-            \ 'highlight FoldColumn        ctermbg=NONE cterm=bold',
-            \ 'highlight NonText           ctermbg=NONE',
-            \ 'highlight clear LineNr'
-            \]
 
+colorscheme PaperColor
 
 fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
@@ -106,6 +90,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+
+" folding
+set foldmethod=syntax
+set nofoldenable
 
 " view
 set number
