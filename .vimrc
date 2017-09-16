@@ -59,9 +59,9 @@ if has('gui_running')
     colorscheme vim-material
 endif
 colorscheme PaperColor
-" colorscheme vim-material
+colorscheme vim-material
 set guifont=Consolas\ 13
-set background=dark
+" set background=dark
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
             \ 'highlight LineNr            ctermbg=NONE',
@@ -101,6 +101,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+
+" folding
+set foldmethod=syntax
+set nofoldenable
 
 " view
 set number
