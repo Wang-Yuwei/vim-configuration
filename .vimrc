@@ -38,6 +38,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'othree/yajs.vim'
 Plugin 'posva/vim-vue'
+Plugin 'peterhoeg/vim-qml'
 
 " typescript
 Plugin 'leafgarland/typescript-vim'
