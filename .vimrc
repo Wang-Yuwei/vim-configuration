@@ -67,7 +67,26 @@ if has('gui_running')
     endif
 endif
 
+" set background=dark
 colorscheme PaperColor
+" colorscheme vim-material
+" highlight Normal ctermfg=grey ctermbg=darkblue
+let g:CSApprox_hook_post = [
+            \ 'highlight Normal            ctermbg=NONE',
+            \ 'highlight LineNr            ctermbg=NONE',
+            \ 'highlight SignifyLineAdd    cterm=bold ctermbg=NONE ctermfg=green',
+            \ 'highlight SignifyLineDelete cterm=bold ctermbg=NONE ctermfg=red',
+            \ 'highlight SignifyLineChange cterm=bold ctermbg=NONE ctermfg=yellow',
+            \ 'highlight SignifySignAdd    cterm=bold ctermbg=NONE ctermfg=green',
+            \ 'highlight SignifySignDelete cterm=bold ctermbg=NONE ctermfg=red',
+            \ 'highlight SignifySignChange cterm=bold ctermbg=NONE ctermfg=yellow',
+            \ 'highlight SignColumn        ctermbg=NONE',
+            \ 'highlight CursorLine        ctermbg=NONE cterm=underline',
+            \ 'highlight Folded            ctermbg=NONE cterm=bold',
+            \ 'highlight FoldColumn        ctermbg=NONE cterm=bold',
+            \ 'highlight NonText           ctermbg=NONE',
+            \ 'highlight clear LineNr'
+\]
 
 fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
@@ -193,8 +212,6 @@ let g:formatters_javascript = ['eslint']
 let g:javascript_plugin_flow = 1
 
 " you complete me
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=1
