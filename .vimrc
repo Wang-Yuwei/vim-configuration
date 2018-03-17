@@ -33,7 +33,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'godlygeek/csapprox'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'othree/yajs.vim'
@@ -196,8 +196,8 @@ source $VIMRUNTIME/ftplugin/man.vim
 nmap <Leader>man :Man 3 <cword><CR>
 
 " clang format
-" let g:clang_format#detect_style_file=1
-" let g:clang_format#auto_format=1
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=1
 
 " Auto format
 au BufWrite * :Autoformat
@@ -212,6 +212,8 @@ let g:formatters_javascript = ['eslint']
 let g:javascript_plugin_flow = 1
 
 " you complete me
+let g:ycm_register_as_syntastic_checker=0
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tags_files=1
